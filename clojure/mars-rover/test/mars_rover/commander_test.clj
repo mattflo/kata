@@ -24,6 +24,14 @@
   (testing "should read two fs at a time"
     (is (= [2 7 :n] (dispatch-rover [2 5 :n] "ff")))))
 
-(deftest reading-two-backwards-commands
-  (testing "should read two fs at a time"
+(deftest reading-backwards-commands
+  (testing "should read two bs at a time"
     (is (= [2 3 :n] (dispatch-rover [2 5 :n] "bb")))))
+
+(deftest reading-left-commands
+  (testing "should turn left"
+    (is (= [2 5 :w] (dispatch-rover [2 5 :n] "l")))))
+
+(deftest reading-right-commands
+  (testing "should turn left"
+    (is (= [2 5 :e] (dispatch-rover [2 5 :n] "r")))))
