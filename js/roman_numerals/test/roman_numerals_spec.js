@@ -15,6 +15,14 @@ var romanDigitToInt = function (digit) {
   };
 };
 
+var romanToInt = function (digits) {
+  var result = 0;
+  for (var i=0; i < digits.length; ++i) {
+    result += romanDigitToInt(digits[i]);
+  }
+  return result;
+}
+
 describe('converting roman numerals to integers',function(){
   describe('digits', function(){
     it('should interpret i', function(){
@@ -33,5 +41,10 @@ describe('converting roman numerals to integers',function(){
       romanDigitToInt('c').should.equal(100);
     });
   });
+  describe('strings of digits',function () {
+    it('should interpret ii',function () {
+      romanToInt('ii').should.equal(2);
+    })
+  })
 });
 
