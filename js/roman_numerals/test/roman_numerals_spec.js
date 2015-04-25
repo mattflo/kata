@@ -1,22 +1,27 @@
 var chai = require('chai');
 chai.should();
 
-var roman = function (digit) {
-  if (digit == 'i') {
+var romanDigitToInt = function (romanDigitToInt) {
+  if (romanDigitToInt == 'i') {
     return 1;
-  } else {
+  } else if (romanDigitToInt == 'v'){
     return 5;
-  }
+  } else {
+    return 10;
+  };
 };
 
-describe('roman numerals',function(){
+describe('converting roman numerals to integers',function(){
   describe('digits', function(){
-    it('i should be 1', function(){
-      roman('i').should.equal(1);
-    })
-    it('v should be 5', function(){
-      roman('v').should.equal(5);
-    })
-  })
+    it('should interpret i', function(){
+      romanDigitToInt('i').should.equal(1);
+    });
+    it('should interpret v', function(){
+      romanDigitToInt('v').should.equal(5);
+    });
+    it('should interpret x', function(){
+      romanDigitToInt('x').should.equal(10);
+    });
+  });
 });
 
